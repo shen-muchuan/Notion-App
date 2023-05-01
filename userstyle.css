@@ -4,7 +4,47 @@
   display: none !important;
 }
 
-/* scroll bar */
+/* general scroll bar */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-scroller-thumb-alt: rgba(0, 0, 0, 0.22) !important;
+    --color-scroller-thumb-hover-alt: rgba(0, 0, 0, 0.44) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-scroller-thumb-alt: rgba(255, 255, 255, 0.33) !important;
+    --color-scroller-thumb-hover-alt: rgba(255, 255, 255, 0.66) !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px !important;
+  background-color: var(--color-scroller-thumb-alt) !important;
+  background-clip: padding-box !important;
+  border: solid 3px transparent !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scroller-thumb-hover-alt) !important;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent !important;
+}
+
+/* notion scroll bar */
 
 .notion-scroller.vertical.horizontal {
   overflow: overlay !important;
