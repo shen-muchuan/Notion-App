@@ -47,11 +47,21 @@
   }
 }
 
+
+
 /*
 # window
 */
 .notion-app-inner {
   background: none !important;
+}
+
+html{
+  background: unset !important;
+}
+
+body{
+  background: unset !important;
 }
 
 /*
@@ -81,23 +91,6 @@ html.notion-front-page {
 .notion-sidebar {
   -webkit-app-region: no-drag !important;
 }
-
-/* 
-## move some items out of way for the traffic light
-*/
-
-.notion-sidebar {
-  margin-top: 52px !important;
-}
-
-/*
-## Hide the title away from the traffic lights when the sidebar is hidden
-*/
-
-*[style*="flex-shrink: 0; width: 48px; height: 48px; margin: -12px -6px -12px -12px; padding: 12px;"] {
-  margin-left: 60px !important;
-}
-
 
 /*
 # Sidebar
@@ -141,28 +134,6 @@ body.notion-body {
   background: none !important;
 }
 
-
-/*
-# Header
-*/
-
-.notion-topbar,
-.notion-topbar>* {
-  height: 52px !important;
-  transition: none;
-}
-
-.notion-frame {
-  height: calc(100vh - 52px) !important;
-  /* box-shadow: 0 -1px 0 0 var(--color-border-ui-alt), 0 -52px 0 0 var(--color-header-alt) !important;*/
-}
-
-.notion-topbar {
-  z-index: 9999 !important;
-  border-bottom: 1px solid var(--color-border-ui-alt) !important;
-  background: var(--color-header-alt) !important;
-}
-
 /*
 # Hider
 */
@@ -204,20 +175,6 @@ body.notion-body {
 [style*="SFMono-Regular"] {
   font-family: var(--theme--font_code) !important;
 }
-
-/*
-.notion-selectable.notion-quote-block div[spellcheck="true"] {
-  font-family: var(--theme--font_quote) !important;
-}
-*/
-
-/*
-[placeholder="Heading 1"],
-[placeholder="Heading 2"],
-[placeholder="Heading 3"] {
-  font-family: var(--theme--font_headings) !important;
-}
-*/
 
 /*
 # Scroller
@@ -416,12 +373,3 @@ body.notion-body {
   -webkit-backdrop-filter: grayscale(60%);
   backdrop-filter: grayscale(60%);
 }
-
-/*
-## Database preview header
-*/
-/*
-#notion-app>div>div.notion-overlay-container.notion-default-overlay-container>div:nth-child(2)>div>div:nth-child(2)>div:nth-child(1) {
-  background: none !important;
-}
-*/

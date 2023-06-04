@@ -46,14 +46,6 @@ nativefier https://www.notion.so/login --title-bar-style 'hiddenInset' --browser
 
 ```
 
-```zsh
-nativefier https://www.notion.so/login --title-bar-style 'hidden' --browserwindow-options '{
-    "backgroundMaterial": "mica",
-    "titleBarOverlay": true,
-    "webPreferences": {
-        "sandbox": true,
-        "spellcheck": false
-    }
-}' --icon ~/nativeLike-Notion/icon.ico --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject_windows.css --platform windows
-
+```batch
+nativefier https://www.notion.so/login --browserwindow-options "{\"frame\":true, \"transparent\":true, \"backgroundMaterial\": \"mica\", \"titleBarOverlay\": true, \"webPreferences\": { \"sandbox\": true, \"spellcheck\": false}}" --icon c:\nativeLike-Notion\icon.ico --name Notion --min-height 400 --min-width 660 --inject c:\nativeLike-Notion\inject_windows.css --platform windows --electron-version 25.0.1
 ```
