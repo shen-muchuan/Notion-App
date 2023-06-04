@@ -42,6 +42,18 @@ nativefier https://www.notion.so/login --title-bar-style 'hiddenInset' --browser
         "sandbox": true,
         "spellcheck": false
     }
-}' --icon ~/nativeLike-Notion/icon.icns --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject.css --arch universal --mac
+}' --icon ~/nativeLike-Notion/icon.icns --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject_macos.css --arch universal --mac
+
+```
+
+```zsh
+nativefier https://www.notion.so/login --title-bar-style 'hidden' --browserwindow-options '{
+    "backgroundMaterial": "mica",
+    "titleBarOverlay": true,
+    "webPreferences": {
+        "sandbox": true,
+        "spellcheck": false
+    }
+}' --icon ~/nativeLike-Notion/icon.ico --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject_windows.css --platform windows
 
 ```

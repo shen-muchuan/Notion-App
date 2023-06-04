@@ -1,0 +1,427 @@
+/*
+# Root
+*/
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-editor-background: rgb(255 255 255) !important;
+    --color-theme-value: 35, 131, 226;
+    --color-text-tint: rgb(20 105 188) !important;
+    --color-scroller-thumb-alt: rgba(0, 0, 0, 0.22) !important;
+    --color-scroller-thumb-hover-alt: rgba(0, 0, 0, 0.44) !important;
+    --color-header-alt: rgb(253, 253, 253) !important;
+    --color-fake-vibrancy-menu: rgb(237, 237, 237) !important;
+    --color-fake-vibrancy-windows: rgb(230, 230, 230) !important;
+    --color-background-grey: rgb(244, 245, 245) !important;
+    --color-text-menu: rgba(0, 0, 0, 0.85) !important;
+    --shadow-menu-alt: rgba(0, 0, 0, 0.3) 0px 0px 0px 0.5px,
+      rgba(0, 0, 0, 0.18) 0px 8px 15px 6px !important;
+    --shadow-windows-alt: rgba(0, 0, 0, 0.3) 0px 0px 3px 0px,
+      rgba(0, 0, 0, 0.4) 0px 36px 100px 0px !important;
+    --border-menu-alt: rgba(255, 255, 255, 0.5) !important;
+    --border-windows-alt: rgba(255, 255, 255, 0.5) !important;
+    --color-border-ui-alt: rgb(230, 230, 230) !important;
+    --color-right-sidebar: rgb(235, 235, 235) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-editor-background: rgb(30 30 30) !important;
+    --color-theme-value: 35, 131, 226;
+    --color-text-tint: rgb(130 193 255) !important;
+    --color-scroller-thumb-alt: rgba(255, 255, 255, 0.33) !important;
+    --color-scroller-thumb-hover-alt: rgba(255, 255, 255, 0.66) !important;
+    --color-header-alt: rgb(53, 53, 53) !important;
+    --color-fake-vibrancy-menu: rgb(37, 37, 37) !important;
+    --color-fake-vibrancy-windows: rgb(39, 38, 38) !important;
+    --color-background-grey: rgb(41, 41, 41) !important;
+    --color-text-menu: rgba(255, 255, 255, 0.85) !important;
+    --shadow-menu-alt: rgba(0, 0, 0, 0.9) 0px 0px 0px 0.5px,
+      rgba(0, 0, 0, 0.18) 0px 8px 15px 6px !important;
+    --shadow-windows-alt: rgba(0, 0, 0, 0.4) 0px 0px 3px 0px,
+      rgba(0, 0, 0, 0.4) 0px 36px 100px 0px !important;
+    --border-menu-alt: rgba(255, 255, 255, 0.2) !important;
+    --border-windows-alt: rgba(255, 255, 255, 0.2) !important;
+    --color-border-ui-alt: rgb(0, 0, 0) !important;
+    --color-right-sidebar: rgb(44, 44, 44) !important;
+  }
+}
+
+/*
+# window
+*/
+.notion-app-inner {
+  background: none !important;
+}
+
+/*
+## Draggable
+*/
+
+.notion-topbar {
+  -webkit-app-region: drag;
+}
+
+.notion-sidebar-container {
+  -webkit-app-region: drag;
+}
+
+html.notion-front-page {
+  -webkit-app-region: drag;
+}
+
+/*
+## no-darg
+*/
+
+.notion-topbar-action-buttons {
+  -webkit-app-region: no-drag !important;
+}
+
+.notion-sidebar {
+  -webkit-app-region: no-drag !important;
+}
+
+/* 
+## move some items out of way for the traffic light
+*/
+
+.notion-sidebar {
+  margin-top: 52px !important;
+}
+
+/*
+## Hide the title away from the traffic lights when the sidebar is hidden
+*/
+
+*[style*="flex-shrink: 0; width: 48px; height: 48px; margin: -12px -6px -12px -12px; padding: 12px;"] {
+  margin-left: 60px !important;
+}
+
+
+/*
+# Sidebar
+*/
+
+/*
+## Left
+*/
+
+.notion-sidebar-container {
+  background: none !important;
+}
+
+style attribute {
+  background: none !important;
+}
+
+.notion-cursor-listener {
+  background: none !important;
+}
+
+body {
+  background: none !important;
+}
+
+body.notion-body {
+  background: none !important;
+}
+
+/*
+## Right
+*/
+
+.notion-update-sidebar>* {
+  background: none !important;
+  transition: none !important;
+}
+
+
+#notion-app>div>div:nth-child(1)>div>div:nth-child(6)>div>div>div>div:nth-child(3)>div:nth-child(2) {
+  background: none !important;
+}
+
+
+/*
+# Header
+*/
+
+.notion-topbar,
+.notion-topbar>* {
+  height: 52px !important;
+  transition: none;
+}
+
+.notion-frame {
+  height: calc(100vh - 52px) !important;
+  /* box-shadow: 0 -1px 0 0 var(--color-border-ui-alt), 0 -52px 0 0 var(--color-header-alt) !important;*/
+}
+
+.notion-topbar {
+  z-index: 9999 !important;
+  border-bottom: 1px solid var(--color-border-ui-alt) !important;
+  background: var(--color-header-alt) !important;
+}
+
+/*
+# Hider
+*/
+
+/*
+## help botton
+*/
+
+.notion-help-button {
+  display: none !important;
+}
+
+/*
+# Fonts
+*/
+
+:root {
+  --theme--font_sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", sans-serif;
+  --theme--font_serif: "Seriflux", Lyon-Text, Georgia, "Songti SC", SimSun, serif;
+  --theme--font_mono: iawriter-mono, Nitti, Menlo, Courier, monospace;
+  --theme--font_code: var(--theme--font_mono);
+  /*--theme--font_quote: var(--theme--font_sans);
+  --theme--font_headings: var(--theme--font_sans);*/
+}
+
+[style*="Segoe UI"] {
+  font-family: var(--theme--font_sans) !important;
+}
+
+[style*="Georgia"] {
+  font-family: var(--theme--font_serif) !important;
+}
+
+[style*="iawriter-mono"] {
+  font-family: var(--theme--font_mono) !important;
+}
+
+[style*="SFMono-Regular"] {
+  font-family: var(--theme--font_code) !important;
+}
+
+/*
+.notion-selectable.notion-quote-block div[spellcheck="true"] {
+  font-family: var(--theme--font_quote) !important;
+}
+*/
+
+/*
+[placeholder="Heading 1"],
+[placeholder="Heading 2"],
+[placeholder="Heading 3"] {
+  font-family: var(--theme--font_headings) !important;
+}
+*/
+
+/*
+# Scroller
+*/
+
+::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px !important;
+  background-color: var(--color-scroller-thumb-alt) !important;
+  background-clip: padding-box !important;
+  border: solid 3px transparent !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scroller-thumb-hover-alt) !important;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent !important;
+}
+
+.notion-scroller.vertical.horizontal {
+  overflow: overlay !important;
+  background-color: transparent !important;
+}
+
+.notion-scroller.vertical {
+  overflow: hidden overlay !important;
+  background-color: transparent !important;
+}
+
+.notion-scroller.horizontal {
+  overflow: overlay hidden !important;
+  background-color: transparent !important;
+}
+
+/*
+# Sheets & Windows
+*/
+
+/*
+## General Menu
+*/
+
+/*
+### light
+*/
+
+.notion-light-theme *[style*="box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;"] {
+  background-color: var(--color-fake-vibrancy-menu) !important;
+  border-radius: 8px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-menu-alt) !important;
+  box-shadow: var(--shadow-menu-alt) !important;
+}
+
+/*
+### Dark
+*/
+
+.notion-dark-theme *[style*="box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.2) 0px 3px 6px, rgba(15, 15, 15, 0.4) 0px 9px 24px;"] {
+  background-color: var(--color-fake-vibrancy-menu) !important;
+  border-radius: 8px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-menu-alt) !important;
+  box-shadow: var(--shadow-menu-alt) !important;
+}
+
+/*
+## Quick Search
+*/
+
+/*
+### light
+*/
+
+.notion-light-theme *[style*="box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 5px 10px, rgba(15, 15, 15, 0.2) 0px 15px 40px;"] {
+  background-color: var(--color-fake-vibrancy-windows) !important;
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-windows-alt) !important;
+  box-shadow: var(--shadow-windows-alt) !important;
+}
+
+/*
+### Dark
+*/
+
+.notion-dark-theme *[style*="box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.2) 0px 5px 10px, rgba(15, 15, 15, 0.4) 0px 15px 40px;"] {
+  background-color: var(--color-fake-vibrancy-windows) !important;
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-windows-alt) !important;
+  box-shadow: var(--shadow-windows-alt) !important;
+}
+
+/*
+## settings
+*/
+
+/*
+### light
+*/
+
+.notion-light-theme *[style*="box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 5px 10px, rgba(15, 15, 15, 0.2) 0px 15px 40px;"] {
+  background-color: var(--color-fake-vibrancy-windows) !important;
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-windows-alt) !important;
+  box-shadow: var(--shadow-windows-alt) !important;
+}
+
+/*
+### Dark
+*/
+
+.notion-dark-theme *[style*="box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.2) 0px 5px 10px, rgba(15, 15, 15, 0.4) 0px 15px 40px;"] {
+  background-color: var(--color-fake-vibrancy-windows) !important;
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-windows-alt) !important;
+  box-shadow: var(--shadow-windows-alt) !important;
+}
+
+/*
+## database preview
+*/
+
+/*
+### light
+*/
+
+.notion-light-theme *[style*="box-shadow: rgba(15, 15, 15, 0.016) 0px 0px 0px 1px, rgba(15, 15, 15, 0.03) 0px 3px 6px, rgba(15, 15, 15, 0.06) 0px 9px 24px;"] {
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-windows-alt) !important;
+  box-shadow: var(--shadow-windows-alt) !important;
+}
+
+/*
+### dark
+*/
+
+.notion-dark-theme *[style*="box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;"] {
+  border-radius: 10px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--border-windows-alt) !important;
+  box-shadow: var(--shadow-windows-alt) !important;
+}
+
+/*
+# Page Elements
+*/
+
+/*
+## Background
+*/
+
+.notion-frame {
+  background: var(--color-editor-background) !important;
+}
+
+/*
+## Cover
+*/
+
+.pseudoSelection {
+  margin-top: -1px !important;
+}
+
+/*
+## the black mask
+*/
+
+*[style*="background: rgba(0, 0, 0, 0.4);"],
+*[style*="background: rgba(15, 15, 15, 0.8);"],
+*[style*="background: rgba(15, 15, 15, 0.6);"],
+*[style*="background: black; opacity: 0.8;"] {
+  background: rgba(0, 0, 0, 0.2) !important;
+  -webkit-backdrop-filter: grayscale(60%);
+  backdrop-filter: grayscale(60%);
+}
+
+/*
+## Database preview header
+*/
+/*
+#notion-app>div>div.notion-overlay-container.notion-default-overlay-container>div:nth-child(2)>div>div:nth-child(2)>div:nth-child(1) {
+  background: none !important;
+}
+*/
