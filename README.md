@@ -42,8 +42,7 @@ nativefier https://www.notion.so/login --title-bar-style 'hiddenInset' --browser
         "sandbox": true,
         "spellcheck": false
     }
-}' --icon ~/nativeLike-Notion/icon.icns --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject_macos.css --arch universal --mac
-
+}' --icon ~/nativeLike-Notion/icon.icns --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject_macos.css --arch universal --mac --electron-version 25.0.1
 ```
 
 ```batch
