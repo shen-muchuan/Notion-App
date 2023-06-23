@@ -60,3 +60,27 @@
   overflow: overlay hidden !important;
   background-color: transparent !important;
 }
+
+:root {
+  --theme--font_sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", sans-serif;
+  --theme--font_serif: "Seriflux", Lyon-Text, Georgia, "Songti SC", SimSun, serif;
+  --theme--font_mono: iawriter-mono, Nitti, Menlo, Courier, monospace;
+  --theme--font_code: var(--theme--font_mono);
+}
+
+[style*="Segoe UI"] {
+  font-family: var(--theme--font_sans) !important;
+}
+
+[style*="Georgia"] {
+  font-family: var(--theme--font_serif) !important;
+}
+
+[style*="iawriter-mono"] {
+  font-family: var(--theme--font_mono) !important;
+}
+
+[style*="SFMono-Regular"] {
+  font-family: var(--theme--font_code) !important;
+}
