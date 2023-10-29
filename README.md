@@ -42,9 +42,9 @@ nativefier https://www.notion.so/login --title-bar-style 'hiddenInset' --browser
         "sandbox": true,
         "spellcheck": false
     }
-}' --icon ~/nativeLike-Notion/icon.icns --name Notion --min-height 400 --min-width 660 --inject ~/nativeLike-Notion/inject_macos.css --arch universal --mac --electron-version 25.0.1
+}' --icon icon.icns --name Notion --min-height 400 --min-width 660 --inject inject_macos.css --arch universal --mac --electron-version 27.0.2
 ```
 
 ```batch
-nativefier https://www.notion.so/login --browserwindow-options "{\"frame\":true, \"transparent\":true, \"backgroundMaterial\": \"mica\", \"titleBarOverlay\": true, \"webPreferences\": { \"sandbox\": true, \"spellcheck\": false}}" --icon c:\nativeLike-Notion\icon.ico --name Notion --min-height 400 --min-width 660 --inject c:\nativeLike-Notion\inject_windows.css --platform windows --electron-version 25.0.1
+nativefier https://www.notion.so/login --browserwindow-options "{\"frame\":true, \"transparent\":true, \"backgroundMaterial\": \"mica\", \"titleBarOverlay\": true, \"webPreferences\": { \"sandbox\": true, \"spellcheck\": false}}" --icon c:\nativeLike-Notion\icon.ico --name Notion --min-height 400 --min-width 660 --inject c:\nativeLike-Notion\inject_windows.css --platform windows --electron-version 27.0.2
 ```
