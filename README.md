@@ -2,11 +2,11 @@
   <img src="https://github.com/SHEN-Muchuan/nativeLike-Notion/blob/main/icon.png?raw=true" alt="nativeLike Notion logo" height="150">
 </picture>
 
-# nativeLike Notion
+# Notion App
 
 ## Introduction
 
-Welcome to nativeLike Notion, the ultimate repackaged [Notion](https://www.notion.so/) app for macOS users!
+It is a repackaged [Notion](https://www.notion.so/) app for macOS and Windows.
 
 Our app is built with the incredible power of [Nativefier](https://github.com/nativefier/nativefier), a project based on [Electron](https://www.electronjs.org).
 
