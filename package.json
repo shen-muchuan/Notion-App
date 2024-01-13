@@ -2,15 +2,17 @@
   "dependencies": {
     "electron": "^28.1.3"
   },
-  "name": "notion-app",
+  "name": "Notion",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "devDependencies": {
     "electron-builder": "^24.9.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -31,6 +33,5 @@
         "deb"
       ]
     }
-  }
-  
+  }  
 }
