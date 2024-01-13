@@ -15,7 +15,7 @@ function createWindow() {
   win.webContents.on('did-finish-load', () => {
     const path = require('path');
     const fs = require('fs');
-    const css = fs.readFileSync(path.join(__dirname, 'styles.css'), 'utf8');
+    const css = fs.readFileSync(path.join(__dirname, 'macos.css'), 'utf8');
     win.webContents.insertCSS(css);
     const js = fs.readFileSync(path.join(__dirname, 'inject.js'), 'utf8');
     win.webContents.executeJavaScript(js);
