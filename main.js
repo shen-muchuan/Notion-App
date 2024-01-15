@@ -1,14 +1,17 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, shell } = require('electron');
 
 function createWindow() {
   const win = new BrowserWindow({
     show: false,
+    minWidth: 660,
+    minHeight: 400,
     titleBarStyle: 'hiddenInset',
     vibrancy: 'sidebar',
     trafficLightPosition: { x: 18, y: 18 },
     webPreferences: {
       sandbox: true,
-      spellcheck: false
+      spellcheck: false,
+      nodeIntegration: true
     }
   });
 
@@ -23,10 +26,32 @@ function createWindow() {
 
   win.loadURL('https://www.notion.so');
 
-  // Show window when it is ready to display
   win.once('ready-to-show', () => {
     win.show();
+  });
+
+  // Intercept new-window events and open URLs in the default browser
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    if (!url.includes('notion.so')) {
+      shell.openExternal(url);
+      return { action: 'deny' };
+    }
+    return { action: 'allow' };
+  });
+
+  // Intercept all navigation events
+  win.webContents.on('will-navigate', (event, url) => {
+    if (!url.includes('notion.so')) {
+      event.preventDefault();
+      shell.openExternal(url);
+    }
   });
 }
 
 app.whenReady().then(createWindow);
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
