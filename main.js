@@ -8,15 +8,20 @@ function createWindow() {
 
   const win = new BrowserWindow({
     show: false,
-    minWidth: isWindows ? 660 : 660,
-    minHeight: isWindows ? 400 : 400,
-    titleBarStyle: 'hiddenInset',
+    minWidth: 660,
+    minHeight: 400,
+    titleBarStyle: isWindows ? undefined : 'hiddenInset',
+    /*frame: false,*/
+    maximizable: false,
+    autoHideMenuBar: isWindows ? true : false,
     vibrancy: 'sidebar',
     trafficLightPosition: { x: 18, y: 18 },
+    backgroundMaterial: 'mica',
     webPreferences: {
       sandbox: true,
       spellcheck: false,
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false,
     }
   });
 
@@ -33,6 +38,19 @@ function createWindow() {
   win.once('ready-to-show', () => {
     win.show();
   });
+
+  /*// Custom titlebar functionality
+  ipcMain.on('minimize-app', () => {
+    win.minimize();
+  });
+
+  ipcMain.on('maximize-app', () => {
+    win.isMaximized() ? win.unmaximize() : win.maximize();
+  });
+
+  ipcMain.on('close-app', () => {
+    win.close();
+  });*/
 
   // Intercept new-window events and open URLs in the default browser
   win.webContents.setWindowOpenHandler(({ url }) => {

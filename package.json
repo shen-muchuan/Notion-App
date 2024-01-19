@@ -1,6 +1,4 @@
 {
-  "dependencies": {
-  },
   "name": "Notion",
   "version": "1.0.0",
   "main": "main.js",
@@ -12,7 +10,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
-  },  
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -33,5 +31,5 @@
         "deb"
       ]
     }
-  }  
+  }
 }
