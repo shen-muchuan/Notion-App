@@ -10,6 +10,7 @@
         rgba(0, 0, 0, 0.4) 0px 36px 100px 0px !important;
       --border-menu-alt: rgba(255, 255, 255, 0) !important;
       --border-windows-alt: rgba(255, 255, 255, 0) !important;
+      --frame-background: rgba(255, 255, 255, 0.6);
   }
 }
 
@@ -25,6 +26,7 @@
         rgba(0, 0, 0, 0.4) 0px 36px 100px 0px !important;
       --border-menu-alt: rgba(255, 255, 255, 0) !important;
       --border-windows-alt: rgba(255, 255, 255, 0) !important;
+      --frame-background: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -62,7 +64,7 @@ body.notion-body,
 /* main*/
 
 .notion-frame {
-  background: rgba(255, 255, 255, 0.6) !important;
+  background: var(--frame-background) !important;
   border-radius: 8px 8px 0px 0px !important;
 }
 
@@ -103,7 +105,8 @@ div.notion-ai-button {
 
 /* scroller */
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
   background-color: transparent !important;
 }
 
