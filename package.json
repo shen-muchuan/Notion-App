@@ -16,8 +16,8 @@
   "license": "ISC",
   "description": "",
   "build": {
-    "appId": "com.yourapp.id",
-    "productName": "YourAppName",
+    "appId": "com.notion.id",
+    "productName": "Notion",
     "mac": {
       "category": "your.app.category.type"
     },
