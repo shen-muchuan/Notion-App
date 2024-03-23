@@ -73,14 +73,14 @@
   -webkit-app-region: no-drag;
 }
 
-.notion-sidebar {
+/*.notion-sidebar {
   padding-top: 52px !important;
-  /*transform: none !important;*/
-}
+  /*transform: none !important;
+}*/
 
-*[style*="flex-shrink: 0; width: 48px; height: 48px; margin: -12px -6px -12px -12px; padding: 12px;"] {
+/**[style*="flex-shrink: 0; width: 48px; height: 48px; margin: -12px -6px -12px -12px; padding: 12px;"] {
   margin-left: 60px !important;
-}
+}*/
 
 /*new inbox*/
 
@@ -160,13 +160,14 @@ header{
 
 .notion-topbar,
 .notion-topbar>* {
-  height: 52px !important;
+  /*height: 52px !important;*/
   transition: none;
 }
 
 .notion-frame {
-  height: calc(100vh - 52px) !important;
-  box-shadow: 0 -1px 0 0 var(--color-border-ui-alt), 0 -52px 0 0 var(--color-header-alt) !important;
+  background: rgba(255, 255, 255, 0.5);
+  /*height: calc(100vh - 52px) !important;*/
+  /*box-shadow: 0 -1px 0 0 var(--color-border-ui-alt), 0 -52px 0 0 var(--color-header-alt) !important;*/
 }
 
 /* #notion-app>div>div:nth-child(1)>div>div:nth-child(2)>div:nth-child(1) {

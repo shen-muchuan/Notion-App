@@ -25,5 +25,8 @@
       "target": "NSIS",
       "icon": "icon.ico"
     }
+  },
+  "dependencies": {
+    "mica-electron": "^1.5.5"
   }
 }
