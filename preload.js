@@ -1,11 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
+const { ipcMain } = require('electron');
 
-// 在全局范围内暴露窗口控制方法
-contextBridge.exposeInMainWorld('electronWindowControl', {
-  minimize: () => ipcRenderer.send('window-minimize'),
-  maximize: () => ipcRenderer.send('window-maximize'),
-  close: () => ipcRenderer.send('window-close')
-});
 
 // 等待文档加载完成
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,4 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 将容器添加到文档中
   document.body.appendChild(controlContainer);
+
+
+
+});
+
+
+// 监听最小化命令
+ipcMain.on('window-minimize', (event) => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    window.minimize();
+  }
+});
+
+// 监听最大化/还原命令
+ipcMain.on('window-maximize', (event) => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    window.isMaximized() ? window.unmaximize() : window.maximize();
+  }
+});
+
+// 监听关闭窗口命令
+ipcMain.on('window-close', (event) => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    window.close();
+  }
 });

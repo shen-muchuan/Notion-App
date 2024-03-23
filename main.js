@@ -1,5 +1,4 @@
-const { app, BrowserWindow, shell } = require('electron');
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, shell, ipcMain } = require('electron');
 const { PARAMS, VALUE,  MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
 const os = require('os');
 const path = require('path');
@@ -84,21 +83,6 @@ function createWindow() {
   });
 }
 
-ipcMain.on('window-minimize', event => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.minimize();
-});
-
-ipcMain.on('window-maximize', event => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.isMaximized() ? window.unmaximize() : window.maximize();
-});
-
-ipcMain.on('window-close', event => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.close();
-});
-
 app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
@@ -109,3 +93,25 @@ app.on('window-all-closed', () => {
 
 // 注意：您需要创建一个名为preload.js的文件，用于在页面中安全地暴露需要的Node.js功能。
 // 这样可以避免直接启用nodeIntegration，提高应用安全性。
+
+// 添加 ipcMain 事件监听器
+ipcMain.on('window-minimize', () => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) window.minimize();
+});
+
+ipcMain.on('window-maximize', () => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    if (window.isMaximized()) {
+      window.unmaximize();
+    } else {
+      window.maximize();
+    }
+  }
+});
+
+ipcMain.on('window-close', () => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) window.close();
+});
