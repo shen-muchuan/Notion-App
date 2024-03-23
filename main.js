@@ -10,13 +10,15 @@ function createWindow() {
     show: false,
     minWidth: 660,
     minHeight: 400,
-    titleBarStyle: isWindows ? undefined : 'hiddenInset',
+    titleBarStyle: isWindows ? 'hidden' : 'hiddenInset',
+    titleBarOverlay: true,
     /*frame: false,*/
-    maximizable: false,
+    maximizable: true,
     autoHideMenuBar: isWindows ? true : false,
     vibrancy: 'sidebar',
     trafficLightPosition: { x: 18, y: 18 },
-    backgroundMaterial: 'mica',
+    backgroundMaterial: 'acrylic',
+    frame: true,
     webPreferences: {
       sandbox: true,
       spellcheck: false,
@@ -41,7 +43,7 @@ function createWindow() {
 
   /*// Custom titlebar functionality
   ipcMain.on('minimize-app', () => {
-    win.minimize();
+win.minimize();
   });
 
   ipcMain.on('maximize-app', () => {
