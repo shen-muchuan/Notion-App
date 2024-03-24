@@ -60,6 +60,11 @@ aside {
   border:none !important;
 }
 
+div[aria-label="Side Peek"] {
+  top: 31px !important;
+}
+
+
 /* General Menu */
 
 div.cet-menubar-menu-container {
