@@ -27,6 +27,7 @@
     }
   },
   "dependencies": {
+    "custom-electron-titlebar": "^4.2.8",
     "mica-electron": "^1.5.5"
   }
 }

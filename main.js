@@ -4,10 +4,16 @@ const os = require('os');
 const path = require('path');
 const fs = require('fs');
 
+// 引入自定义electron titlebar
+const { setupTitlebar, attachTitlebarToWindow, TitlebarColor } = require("custom-electron-titlebar/main");
+
+setupTitlebar();
+
 function createWindow() {
   const isWindows = os.platform() === 'win32';
 
   const win = new MicaBrowserWindow({
+    
     show: false,
     minWidth: 660,
     minHeight: 400,
@@ -21,15 +27,19 @@ function createWindow() {
     /*backgroundMaterial: 'acrylic',*/
     /*frame: true,*/
     webPreferences: {
-      sandbox: true,
+      sandbox: false,
       spellcheck: false,
-      // 更新：提高安全性，推荐使用preload脚本而不是直接启用nodeIntegration
       preload: path.join(__dirname, 'preload.js'), // 假定您有一个preload.js文件
-      contextIsolation: true, // 启用上下文隔离以提高安全性
+      nodeIntegration: false,
+      contextIsolation: true,
+      enableRemoteModule: false,
     }
+  
   });
 
   win.setMicaEffect();
+
+  // 在此处省略win.webContents.on('did-finish-load')及之后的代码...
 
   win.webContents.on('did-finish-load', () => {
     const cssFile = isWindows ? 'windows.css' : 'macos.css';
@@ -89,29 +99,4 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
-});
-
-// 注意：您需要创建一个名为preload.js的文件，用于在页面中安全地暴露需要的Node.js功能。
-// 这样可以避免直接启用nodeIntegration，提高应用安全性。
-
-// 添加 ipcMain 事件监听器
-ipcMain.on('window-minimize', () => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.minimize();
-});
-
-ipcMain.on('window-maximize', () => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) {
-    if (window.isMaximized()) {
-      window.unmaximize();
-    } else {
-      window.maximize();
-    }
-  }
-});
-
-ipcMain.on('window-close', () => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.close();
 });
