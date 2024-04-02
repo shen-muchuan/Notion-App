@@ -47,6 +47,15 @@
 
 /* window */
 
+div.toc-button { 
+  -webkit-app-region: no-drag !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  fill: rgba(255, 255, 255, 0.81) !important;
+  flex-shrink: 0 !important;
+}
+
 .notion-app-inner {
   background: none !important;
 }
@@ -176,9 +185,9 @@ header{
 /* Hider */
 
 /*.notion-help-button,*/
-div.notion-ai-button {
+/*div.notion-ai-button {
   display: none !important;
-}
+}*/
 
 /* Fonts */
 
