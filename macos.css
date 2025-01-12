@@ -83,9 +83,12 @@ div.toc-button {
 }
 
 .notion-sidebar {
-  padding-top: 52px !important;
-  /*transform: none !important;*/
+  height: calc(100vh - 40px) !important;
+  margin-bottom: 0px !important;
+  margin-top: auto !important;
 }
+
+
 
 *[style*="flex-shrink: 0; width: 48px; height: 48px; margin: -12px -6px -12px -12px; padding: 12px;"] {
   margin-left: 60px !important;
@@ -168,7 +171,8 @@ header{
 }
 
 .notion-topbar,
-.notion-topbar>* {
+.notion-topbar>*,
+.notion-topbar >*>*{
   height: 52px !important;
   transition: none;
 }
@@ -183,6 +187,10 @@ header{
 } */
 
 /* Hider */
+
+div.notion-assistant-corner-origin-container{
+  display: none !important;
+}
 
 /*.notion-help-button,*/
 /*div.notion-ai-button {

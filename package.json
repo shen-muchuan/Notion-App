@@ -1,10 +1,10 @@
 {
-  "name": "Notion",
+  "name": "notion",
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
-    "electron": "^28.2.8",
-    "electron-builder": "^24.9.1"
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8"
   },
   "scripts": {
     "start": "electron .",
@@ -14,20 +14,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "build": {
     "appId": "com.notion.so",
     "productName": "Notion",
     "mac": {
       "category": "public.app-category.productivity"
-    },
-    "win": {
-      "target": "NSIS",
-      "icon": "icon.ico"
     }
   },
   "dependencies": {
-    "custom-electron-titlebar": "^4.2.8",
-    "mica-electron": "^1.5.5"
-  }
+  },
+  "description": ""
 }

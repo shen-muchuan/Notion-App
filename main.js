@@ -1,72 +1,39 @@
 const { app, BrowserWindow, shell, ipcMain } = require('electron');
-const os = require('os');
 const path = require('path');
 const fs = require('fs');
 
-const isWindows = os.platform() === 'win32';
-
-// Windows-specific imports
-let MicaBrowserWindow;
-if (isWindows) {
-  ({ MicaBrowserWindow } = require('mica-electron'));
-  const { setupTitlebar, attachTitlebarToWindow, TitlebarColor } = require("electron-custom-titlebar/main");
-  setupTitlebar();
-}
-
 function createWindow() {
-  let win;
-
-  if (isWindows) {
-    win = new MicaBrowserWindow({
-      show: false,
-      minWidth: 660,
-      minHeight: 400,
-      titleBarStyle: 'hidden',
-      autoHideMenuBar: true,
-      webPreferences: {
-        sandbox: false,
-        spellcheck: false,
-        preload: path.join(__dirname, 'preload-windows.js'),
-        nodeIntegration: false,
-        contextIsolation: true,
-        enableRemoteModule: false,
-      }
-    });
-    win.setMicaEffect();
-  } else {
-    win = new BrowserWindow({
-      show: false,
-      minWidth: 660,
-      minHeight: 400,
-      titleBarStyle: 'hiddenInset',
-      vibrancy: 'sidebar',
-      trafficLightPosition: { x: 18, y: 18 },
-      autoHideMenuBar: false,
-      webPreferences: {
-        sandbox: false,
-        spellcheck: false,
-        preload: path.join(__dirname, 'preload-macos.js'),
-        nodeIntegration: false,
-        contextIsolation: true,
-        enableRemoteModule: false,
-      }
-    });
-  }
+  const win = new BrowserWindow({
+    show: false,
+    minWidth: 660,
+    minHeight: 400,
+    titleBarStyle: 'hiddenInset',
+    vibrancy: 'sidebar',
+    trafficLightPosition: { x: 18, y: 18 },
+    autoHideMenuBar: false,
+    webPreferences: {
+      sandbox: false,
+      spellcheck: false,
+      preload: path.join(__dirname, 'preload-macos.js'),
+      nodeIntegration: false,
+      contextIsolation: false,
+      enableRemoteModule: false,
+    }
+  });
 
   win.webContents.on('did-finish-load', () => {
-    const cssFile = isWindows ? 'windows.css' : 'macos.css';
-    const cssPath = path.join(__dirname, cssFile);
+    const cssPath = path.join(__dirname, 'macos.css');
 
     if (fs.existsSync(cssPath)) {
       fs.readFile(cssPath, 'utf8', (err, css) => {
         if (err) {
-          console.error(`Failed to read ${cssFile}:`, err);
+          console.error(`Failed to read macos.css:`, err);
         } else {
           win.webContents.insertCSS(css).catch(console.error);
         }
       });
     } else {
-      console.error(`${cssFile} not found.`);
+      console.error('macos.css not found.');
     }
 
     const jsPath = path.join(__dirname, 'inject.js');
