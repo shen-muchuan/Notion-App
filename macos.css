@@ -83,7 +83,7 @@ div.toc-button {
 }
 
 .notion-sidebar {
-  height: calc(100vh - 40px) !important;
+  height: calc(100vh - 44px) !important;
   margin-bottom: 0px !important;
   margin-top: auto !important;
 }
@@ -182,20 +182,11 @@ header{
   box-shadow: 0 -1px 0 0 var(--color-border-ui-alt), 0 -52px 0 0 var(--color-header-alt) !important;
 }
 
-/* #notion-app>div>div:nth-child(1)>div>div:nth-child(2)>div:nth-child(1) {
-  background: none !important;
-} */
-
 /* Hider */
 
 div.notion-assistant-corner-origin-container{
   display: none !important;
 }
-
-/*.notion-help-button,*/
-/*div.notion-ai-button {
-  display: none !important;
-}*/
 
 /* Fonts */
 
@@ -225,47 +216,9 @@ div.notion-assistant-corner-origin-container{
 
 /* Scroller*/
 
-/*
-::-webkit-scrollbar {
-  width: 14px !important;
-  height: 14px !important;
+* {
+  scrollbar-color: var(--color-scroller-thumb-alt) transparent !important;
 }
-
-::-webkit-scrollbar-track {
-  background-color: transparent !important;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 50px !important;
-  background-color: var(--color-scroller-thumb-alt) !important;
-  background-clip: padding-box !important;
-  border: solid 3px transparent !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-scroller-thumb-hover-alt) !important;
-}
-
-::-webkit-scrollbar-corner {
-  background-color: transparent !important;
-}
-
-.notion-scroller.vertical.horizontal {
-  overflow: overlay !important;
-  background-color: transparent !important;
-}
-
-.notion-scroller.vertical {
-  overflow: hidden overlay !important;
-  background-color: transparent !important;
-}
-
-.notion-scroller.horizontal {
-  overflow: overlay hidden !important;
-  background-color: transparent !important;
-}
-
-*/
 
 /* General Menu */
 
@@ -320,9 +273,9 @@ div.notion-assistant-corner-origin-container{
   background: var(--color-editor-background) !important;
 }
 
-.pseudoSelection {
+/*.pseudoSelection {
   margin-top: -1px !important;
-}
+}*/
 
 /* the black mask */
 

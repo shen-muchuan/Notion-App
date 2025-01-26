@@ -9,7 +9,7 @@ function createWindow() {
     minHeight: 400,
     titleBarStyle: 'hiddenInset',
     vibrancy: 'sidebar',
-    trafficLightPosition: { x: 18, y: 18 },
+    trafficLightPosition: { x: 19, y: 18 },
     autoHideMenuBar: false,
     webPreferences: {
       sandbox: false,
