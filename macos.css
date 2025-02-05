@@ -180,6 +180,9 @@ header{
 .notion-frame {
   height: calc(100vh - 52px) !important;
   box-shadow: 0 -1px 0 0 var(--color-border-ui-alt), 0 -52px 0 0 var(--color-header-alt) !important;
+  position: relative !important;
+  margin-top: auto !important;
+  margin-bottom: 0px !important;
 }
 
 /* Hider */
