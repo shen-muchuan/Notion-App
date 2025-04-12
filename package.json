@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
-    "electron": "^33.3.1",
+    "electron": "^33.4.9",
     "electron-builder": "^25.1.8"
   },
   "scripts": {
@@ -20,8 +20,6 @@
     "mac": {
       "category": "public.app-category.productivity"
     }
-  },
-  "dependencies": {
   },
   "description": ""
 }
