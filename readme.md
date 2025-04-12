@@ -1,4 +1,4 @@
-# Notion App - Enhanced Desktop Experience
+# Notion App
 
 This is a custom Electron-based desktop application for Notion, designed to provide an enhanced experience with macOS-specific features and improved link handling.
 
@@ -25,7 +25,6 @@ This is a custom Electron-based desktop application for Notion, designed to prov
     * `main.js`:  Main process, handles window creation, link handling, and menu management.
     * `macos.css`:  Custom CSS for macOS-style interface.
     * `inject.js`: JavaScript code injected into the Notion web page.
-    * `preload-macos.js`: (If present)  Preload script (Not used in the current version).
 
 ## Prerequisites
 
@@ -45,13 +44,9 @@ This is a custom Electron-based desktop application for Notion, designed to prov
 
 ##  Further Improvements
 
-* **Preload Script:** If you need to interact with the Notion renderer process from Node.js, you'll need to create a preload script and use Electron's `contextBridge` to expose APIs safely.
 * **RAM Usage:** Electron applications can be memory-intensive.  Consider these to reduce RAM usage:
-    * Evaluate the necessity of  `vibrancy`.
     * Optimize injected CSS and JavaScript.
     * Keep Electron updated.
     * Profile the application's memory usage.
 * **Error Handling:** Robust error handling can be improved.
 * **Update Mechanism:** Implement an auto-update mechanism.
-* **Icon:** The application is using the default Electron icon.  A custom icon would be better.
-* **Packaging:** The `package.json`  includes configuration for `electron-builder`, but you'll need to configure it for your specific distribution needs (e.g., signing, app IDs).
