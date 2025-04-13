@@ -1,52 +1,69 @@
-# Notion App
+# Nativelike Notion
 
-This is a custom Electron-based desktop application for Notion, designed to provide an enhanced experience with macOS-specific features and improved link handling.
+This project provides a custom Electron wrapper for the Notion web application, enhancing the user experience with macOS-specific UI elements, improved link/download handling, and minor behavior modifications.
 
 ## Features
 
-* **macOS Integration:**
-    * Traffic light controls and hidden title bar for a native macOS look.
-    * Sidebar vibrancy for a visually appealing experience.
-* **Enhanced Link Handling:**
-    * Opens external links (and downloads) in the default web browser, except for specific Notion subdomains.
-    * Opens `mail.notion.so` and `calendar.notion.so` in the default browser.
+* **Native macOS Aesthetics:**
+    * Integrates traffic light window controls within the header (`titleBarStyle: 'hiddenInset'`)
+    * Applies sidebar vibrancy effect (`vibrancy: 'sidebar'`)
+    * Injects custom CSS (`macos.css`) for further UI adjustments
+* **External Link Handling:**
+    * Intercepts navigation and new window requests
+    * Opens non-Notion URLs and downloads in the system's default external browser via `shell.openExternal`
+    * Specifically routes `mail.notion.so` and `calendar.notion.so` URLs to the external browser
+    * Handles downloads by preventing the default Electron behavior and opening the URL externally (excluding blob URLs)
 * **Multi-Window Support:**
-    * Allows opening multiple Notion windows.
-* **Custom CSS and JavaScript Injection:**
-    * Injects custom `macos.css` for visual enhancements.
-    * Injects `inject.js` for behavior modifications.
-* **Application Menu**
-     * Adds a "File" -> "New Window" option to the menu.
+    * Allows multiple `BrowserWindow` instances, each loading Notion
+    * Provides a "File" > "New Window" menu option (`CmdOrCtrl+N`)
+    * New windows created via the menu or renderer requests (`window.open`, context menu) utilize the same custom `createWindow` function to ensure consistent styling and behavior
+* **Behavior Modifications:**
+    * Injects custom JavaScript (`inject.js`)
+    * Modifies sidebar behavior to prevent automatic expansion on hover based on localStorage state changes (`inject.js`)
+* **Security Enhancements:**
+    * Renderer processes run with `contextIsolation: true` and `sandbox: true` enabled
 
-## Technical Details
+## Screenshots
 
-* **Electron Framework:** Built using Electron.
-* **Customization:**
-    * `main.js`:  Main process, handles window creation, link handling, and menu management.
-    * `macos.css`:  Custom CSS for macOS-style interface.
-    * `inject.js`: JavaScript code injected into the Notion web page.
+![screenshot 1](<screenshot/Screenshot 2025-04-12 at 11.28.17 PM.jpg>)
 
-## Prerequisites
+![screenshot 2](<screenshot/Screenshot 2025-04-12 at 11.32.16 PM.jpg>)
 
-* Node.js and npm
+![screenshot 3](<screenshot/Screenshot 2025-04-12 at 11.35.45 PM.jpg>)
 
-## Installation
+## Project Structure
 
-1.  Clone this repository.
-2.  Run `npm install` to install dependencies.
-3.  Run `npm start` to launch the application.
+```
+Notion-App/
+├── main.js           # Electron main process script
+├── macos.css         # Custom CSS overrides for macOS look
+├── inject.js         # Custom JavaScript injected into renderer
+├── package.json      # Project manifest and dependencies
+├── package-lock.json # Dependency lock file
+└── README.md         # This file
+```
 
-## Important Notes
+## Setup and Usage
 
-* **Context Isolation and Sandboxing**:  This application enables `contextIsolation` and `sandbox` for improved security.
-* **Download Handling**:  Downloads, except for blob URLs, are configured to open in the system's default browser.
-* **New Window Behavior**: New windows are opened with the same settings and styling as the main window.
+**Prerequisites:**
 
-##  Further Improvements
+* Node.js
+* npm (comes with Node.js)
 
-* **RAM Usage:** Electron applications can be memory-intensive.  Consider these to reduce RAM usage:
-    * Optimize injected CSS and JavaScript.
-    * Keep Electron updated.
-    * Profile the application's memory usage.
-* **Error Handling:** Robust error handling can be improved.
-* **Update Mechanism:** Implement an auto-update mechanism.
+**Running the Application:**
+
+```bash
+npm start
+```
+
+## Development Notes
+
+* **Configuration:** Key behaviors like external link routing (`allowedInternalHosts`, `excludedInternalHosts`) and window properties are configured within `main.js`
+* **Debugging:** Use the "View" > "Toggle Developer Tools" menu option for debugging renderer processes. Main process logs are output to the console where `npm start` was run
+* **Potential Improvements:**
+    * **Packaging/Distribution:** Configure `electron-builder` in `package.json` for creating distributable builds (requires setting `appId`, handling code signing, etc.)
+    * **Auto-Update:** Integrate an update mechanism (e.g., `electron-updater`)
+
+## License
+
+Refer to the `LICENSE` file
